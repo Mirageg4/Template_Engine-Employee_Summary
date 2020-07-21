@@ -20,7 +20,8 @@ const employees = []
 
 // Name, ID, and E-mail
 // What type of employee are you?
-inquirer.prompt([]).then(() => {
+
+//Base employee questions
     let typeQuestions = [
         {
             type: 'list',
@@ -31,30 +32,30 @@ inquirer.prompt([]).then(() => {
         {
             type: 'input',
             name: 'name',
-            message: 'Enter name of team member:'
+            message: 'Enter name of the team member:'
         },
         {
             type: 'input',
             name: 'employeeId',
-            message: 'Enter ID number:',
+            message: 'Enter the employee ID number:',
             default: 'Employee'
         },
         {
             type: 'input',
             name: 'email',
-            message: 'Enter Team Member\'s email address:'
+            message: 'Enter the Team Member\'s email address:'
         }
     
     ];
     
-   
+   //Engineer's, Intern's, & Manager's questions
     
     let engineerQuestions = [
     
         {
             type: 'input',
             name: 'github',
-            message: 'Enter GitHub username:'
+            message: 'Enter your GitHub username:'
         }
     
     ];
@@ -64,7 +65,7 @@ inquirer.prompt([]).then(() => {
         {
             type: 'input',
             name: 'school',
-            message: 'Enter Intern\'s school:'
+            message: 'Enter the Intern\'s school:'
         }
     
     ];
@@ -74,10 +75,48 @@ inquirer.prompt([]).then(() => {
         {
             type: 'input',
             name: 'officeNumber',
-            message: 'Enter Manager\'s office number:'
+            message: 'Enter the Manager\'s office number:'
         }
     
     ];
+
+    function Questions(){
+    inquirer.prompt(typeQuestions).then((response) => {
+        if(response.employeeType === 'Engineer') {
+            inquirer.prompt(engineerQuestions).then((engineerResponse) => {
+
+                let name = response.name;
+                let id = response.employeeId;
+                let email = response.email;
+                let github = engineerResponse.github;
+
+                const engineer = new Engineer(name, id, email, github);
+
+                employees.push(engineer);
+
+                Questions();
+
+            });
+           
+        } else if (response.employeeType === 'Intern') {
+            inquirer.prompt(internQuestions).then((internResponse) => {
+
+                let name = response.name;
+                let id = response.employeeId;
+                let email = response.email;
+                let school = internResponse.school;
+
+                const intern = new Intern(name, id, email, school);
+
+                employees.push(intern);
+
+                Questions();
+
+            });
+        }
+
+
+
     switch (employeeType) {
         case "Engineer":
             typeQuestions = engineerQuestions;
