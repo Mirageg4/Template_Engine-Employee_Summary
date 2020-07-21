@@ -21,8 +21,63 @@ const employees = []
 // Name, ID, and E-mail
 // What type of employee are you?
 inquirer.prompt([]).then(() => {
-    let typeQuestions = []
+    let typeQuestions = [
+        {
+            type: 'list',
+            name: 'employeeType',
+            message: 'The role of the team member:',
+            choices: [ 'Manager', 'Engineer', 'Intern']
+        },
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Enter name of team member:'
+        },
+        {
+            type: 'input',
+            name: 'employeeId',
+            message: 'Enter ID number:',
+            default: 'Employee'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter Team Member\'s email address:'
+        }
+    
+    ];
+    
+   
+    
+    let engineerQuestions = [
+    
+        {
+            type: 'input',
+            name: 'github',
+            message: 'Enter GitHub username:'
+        }
+    
+    ];
+    
+    let internQuestions = [
+    
+        {
+            type: 'input',
+            name: 'school',
+            message: 'Enter Intern\'s school:'
+        }
+    
+    ];
 
+    let managerQuestions = [
+
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: 'Enter Manager\'s office number:'
+        }
+    
+    ];
     switch (employeeType) {
         case "Engineer":
             typeQuestions = engineerQuestions;
