@@ -9,6 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
+// Array to store employee info
 const employees = []
 
 // Write code to use inquirer to gather information about the development team members,
@@ -23,12 +24,7 @@ const employees = []
 
 //Base employee questions
     let typeQuestions = [
-        {
-            type: 'list',
-            name: 'employeeType',
-            message: 'The role of the team member:',
-            choices: [ 'Manager', 'Engineer', 'Intern']
-        },
+        
         {
             type: 'input',
             name: 'name',
@@ -49,18 +45,42 @@ const employees = []
     ];
     
    //Engineer's, Intern's, & Manager's questions
-    
-    let engineerQuestions = [
-    
+    function employeeType(res) {
+    let engineerQuestions = new Engineer(res.name, res.id, res.email,res.github,);
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Enter name of the team member:'
+        },
+        {
+            type: 'input',
+            name: 'employeeId',
+            message: 'Enter the employee ID number:',
+            default: 'Employee'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter the Team Member\'s email address:'
+        },
         {
             type: 'input',
             name: 'github',
             message: 'Enter your GitHub username:'
         }
     
-    ];
-    
-    let internQuestions = [
+    ])
+    .then(function (res) {
+        engineer.name = res.name;
+        engineer.id = res.id;
+        engineer.email = res.email;
+        engineer.github = res.github;
+        
+        employees.push(newEmployee);
+    })
+}
+    /*let internQuestions = [
     
         {
             type: 'input',
@@ -79,8 +99,8 @@ const employees = []
         }
     
     ];
-
-    function Questions(){
+//Question & Response interface for team members
+    function getRole(){
     inquirer.prompt(typeQuestions).then((response) => {
         if(response.employeeType === 'Engineer') {
             inquirer.prompt(engineerQuestions).then((engineerResponse) => {
@@ -94,7 +114,7 @@ const employees = []
 
                 employees.push(engineer);
 
-                Questions();
+                getRole();
 
             });
            
@@ -110,11 +130,11 @@ const employees = []
 
                 employees.push(intern);
 
-                Questions();
+                getRole();
 
             });
         }
-
+        */
 
 
     switch (employeeType) {
