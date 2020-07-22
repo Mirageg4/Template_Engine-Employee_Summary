@@ -46,7 +46,7 @@ const employees = []
     
    //Engineer's, Intern's, & Manager's questions
     function employeeType(res) {
-    let engineerQuestions = new Engineer(res.name, res.id, res.email,res.github,);
+    let newEmployee = new Engineer(res.name, res.id, res.email,res.github,);
     inquirer.prompt([
         {
             type: 'input',
