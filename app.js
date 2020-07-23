@@ -22,7 +22,7 @@ const employees = []
 // Name, ID, and E-mail
 // What type of employee are you?
 
-//Base employee questions
+//Base employee questions   
     let typeQuestions = [
         
         {
@@ -76,65 +76,11 @@ const employees = []
         engineer.id = res.id;
         engineer.email = res.email;
         engineer.github = res.github;
-        
+        console.log(employees);
         employees.push(newEmployee);
     })
 }
-    /*let internQuestions = [
     
-        {
-            type: 'input',
-            name: 'school',
-            message: 'Enter the Intern\'s school:'
-        }
-    
-    ];
-
-    let managerQuestions = [
-
-        {
-            type: 'input',
-            name: 'officeNumber',
-            message: 'Enter the Manager\'s office number:'
-        }
-    
-    ];
-//Question & Response interface for team members
-    function getRole(){
-    inquirer.prompt(typeQuestions).then((response) => {
-        if(response.employeeType === 'Engineer') {
-            inquirer.prompt(engineerQuestions).then((engineerResponse) => {
-
-                let name = response.name;
-                let id = response.employeeId;
-                let email = response.email;
-                let github = engineerResponse.github;
-
-                const engineer = new Engineer(name, id, email, github);
-
-                employees.push(engineer);
-
-                getRole();
-
-            });
-           
-        } else if (response.employeeType === 'Intern') {
-            inquirer.prompt(internQuestions).then((internResponse) => {
-
-                let name = response.name;
-                let id = response.employeeId;
-                let email = response.email;
-                let school = internResponse.school;
-
-                const intern = new Intern(name, id, email, school);
-
-                employees.push(intern);
-
-                getRole();
-
-            });
-        }
-        */
 
 
     switch (employeeType) {
@@ -167,7 +113,7 @@ const employees = []
         employees.push(newEmployee)
     })
 
-})
+
 
 
 // After you have your html, you're now ready to create an HTML file using the HTML
