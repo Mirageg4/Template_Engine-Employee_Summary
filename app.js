@@ -44,7 +44,7 @@ const employees = []
     
     ];
     
-   //Engineer's, Intern's, & Manager's questions
+   //Engineer's questions
     function employeeType(res) {
     let newEmployee = new Engineer(res.name, res.id, res.email,res.github,);
     inquirer.prompt([
@@ -66,8 +66,8 @@ const employees = []
         },
         {
             type: 'input',
-            name: 'github',
-            message: 'Enter your GitHub username:'
+            name: 'school',
+            message: 'Enter your school:'
         }
     
     ])
@@ -80,8 +80,79 @@ const employees = []
         employees.push(newEmployee);
     })
 }
+//Intern's questions
+function employeeType(res) {
+    let newEmployee = new Intern(res.name, res.id, res.email,res.school,);
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Enter name of the team member:'
+        },
+        {
+            type: 'input',
+            name: 'employeeId',
+            message: 'Enter the employee ID number:',
+            default: 'Employee'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter the Team Member\'s email address:'
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: 'Enter your school name:'
+        }
     
+    ])
+    .then(function (res) {
+        intern.name = res.name;
+        intern.id = res.id;
+        intern.email = res.email;
+        intern.school = res.school;
+        console.log(employees);
+        employees.push(newEmployee);
+    })
+}
 
+//Manger's questions
+function employeeType(res) {
+    let newEmployee = new Manager(res.name, res.id, res.email,res.officeNumber,);
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Enter name of the team member:'
+        },
+        {
+            type: 'input',
+            name: 'employeeId',
+            message: 'Enter the employee ID number:',
+            default: 'Employee'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter the Team Member\'s email address:'
+        },
+        {
+            type: 'input',
+            name: 'Office Number',
+            message: 'Enter your office number:'
+        }
+    
+    ])
+    .then(function (res) {
+        manager.name = res.name;
+        manager.id = res.id;
+        manager.email = res.email;
+        manager.school = res.school;
+        console.log(employees);
+        employees.push(newEmployee);
+    })
+}
 
     switch (employeeType) {
         case "Engineer":
