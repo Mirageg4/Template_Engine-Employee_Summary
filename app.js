@@ -168,7 +168,7 @@ const htmlData = '<p>Hello!</p>'
 
 function createTeam() {
 
-    fs.writeFileSync(outputPath, render(employees), function(err) {
+    fs.writeFileSync(outputPath, render(htmlData), function(err) {
         if (err) {
             return console.log(err)
         }
