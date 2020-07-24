@@ -114,11 +114,11 @@ function createManager(name, email, id) {
 function createTeam() {
     const htmlData = render(employees)
 ​
-    fs.writeFileSync(outputPath, htmlData, function (err) {
+    fs.writeFileSync(outputPath, htmlData), function (err) {
         if (err) {
             return console.log(err)
         }
-    })
+    }
 ​
 }
 ​
@@ -128,20 +128,20 @@ function main() {
     inquirer.prompt(typeQuestions).then(({
         name,
         email,
-        employeeId,
+        id,
         employeeOption
     }) => {
 ​
         // switch statement to clarify question options
         switch (employeeOption) {
             case 'Engineer':
-                createEngineer(name, email, employeeId);
+                createEngineer(name, email, id);
                 break;
             case 'Intern':
-                createIntern(name, email, employeeId);
+                createIntern(name, email, id);
                 break;
             case 'Manager':
-                createManager(name, email, employeeId);
+                createManager(name, email, id);
                 break;
         }
 ​
