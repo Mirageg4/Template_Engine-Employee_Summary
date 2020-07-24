@@ -164,9 +164,9 @@ function createManager() {
 // does not.
 const htmlData = '<p>Hello!</p>'
 
-fs.writeFileSync(outputPath, htmlData)
+//fs.writeFileSync(outputPath, htmlData)
 
-/*function createTeam() {
+function createTeam() {
 
     fs.writeFileSync(outputPath, render(employees), function(err) {
         if (err) {
@@ -176,7 +176,7 @@ fs.writeFileSync(outputPath, htmlData)
     console.log(employees);
 
 }
-*/
+createTeam();
 
 
 
