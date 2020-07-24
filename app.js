@@ -76,8 +76,8 @@ function createEngineer(name, email, id) {
             github
         }) => {
 ​
-            let newEmployee = new Engineer(name, email, id, github)
-​
+            let newEmployee = new Engineer(name, email, id, github);
+​               
             employees.push(newEmployee);
 ​
         });
