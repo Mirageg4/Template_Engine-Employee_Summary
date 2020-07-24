@@ -76,10 +76,10 @@ let managerQuestions = [
     }
 ];
 
-//Engineer's role
+//Engineer's role-profile
 function createEngineer() {
 inquirer.prompt(typeQuestions)
-.then((res.typeQuestions) = "Engineer");
+.then((res.typeQuestions) = 'Engineer');
         engineer.name = res.name;
         engineer.id = res.id;
         engineer.email = res.email;
@@ -91,10 +91,10 @@ inquirer.prompt(typeQuestions)
         
     }
 
-//Intern's role
+//Intern's role-profile
 function createIntern() {
     inquirer.prompt(typeQuestions)
-    .then((res.typeQuestions) = "Intern");
+    .then((res.typeQuestions) = 'Intern');
         intern.name = res.name;
         intern.id = res.id;
         intern.email = res.email;
@@ -105,10 +105,10 @@ function createIntern() {
         let newEmployee = new Intern(res.name, res.id, res.email,res.school,);
 }
 
-//Manager's role
+//Manager's role-profile
 function createManager() {
     inquirer.prompt(typeQuestions)
-    .then((res.typeQuestions) = "Manager");
+    .then((res.typeQuestions) = 'Manager');
         manager.name = res.name;
         manager.id = res.id;
         manager.email = res.email;
@@ -118,33 +118,34 @@ function createManager() {
 
         let newEmployee = new Manager(res.name, res.id, res.email,res.officeNumber,);
 }
-
+// switch statement to clarify question options
     switch (employeeType) {
-        case "Engineer":
+        case 'Engineer':
             typeQuestions = engineerQuestions;
             createEngineer();
             break;
-        case "Intern":
+        case 'Intern':
             typeQuestions = internQuestions;
             createIntern();
             break;
-        case "Manager":
+        case 'Manager':
             typeQuestions = managerQuestions;
             createManager();
             break;
     }
 
+    //switch statement to assign role
     inquirer.prompt(typeQuestions).then(() => {
         let newEmployee;
         
         switch (employeeType) {
-        case "Engineer":
+        case 'Engineer':
             newEmployee = new Engineer()
             break;
-        case "Intern":
+        case 'Intern':
             newEmployee = new Intern()
             break;
-        case "Manager":
+        case 'Manager':
             newEmployee = new Manager()
             break;
         }
@@ -161,7 +162,7 @@ function createManager() {
 // `output` folder. You can use the variable `outputPath` above target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
-const htmlData = "<p>Hello!</p>"
+const htmlData = '<p>Hello!</p>'
 
 fs.writeFileSync(outputPath, htmlData)
 
