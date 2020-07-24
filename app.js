@@ -49,14 +49,14 @@ const employees = []
     
     ];
 
-//Manager's questions
-let managerQuestions = [
-        {
-            type: 'input',
-            name: 'Office Number',
-            message: 'Enter your office number:'
-        }
-    ];
+//Engineer's questions    
+let engineerQuestions = [
+    {
+        type: 'input',
+        name: 'github',
+        message: 'Enter GitHub username:'
+    }
+];
 
 //Interns's questions
 let internQuestions = [
@@ -67,41 +67,70 @@ let internQuestions = [
     }
 ];
 
- //Engineer's questions    
-let engineerQuestions = [
+//Engineer's questions
+let managerQuestions = [
     {
         type: 'input',
-        name: 'github',
-        message: 'Enter GitHub username:'
+        name: 'officeNumber',
+        message: 'Enter Manager\'s office number:'
     }
 ];
 
-//Manager's role
-function init() {
-    let newEmployee = new Manager(res.name, res.id, res.email,res.officeNumber,);
-    inquirer.prompt(typeQuestions)
+//Engineer's role
+function createEngineer() {
+inquirer.prompt(typeQuestions)
+.then((res.typeQuestions) = "Engineer");
+        engineer.name = res.name;
+        engineer.id = res.id;
+        engineer.email = res.email;
+        engineer.github = res.github;
+        console.log(employees);
+        employees.push(newEmployee);
+
+        let newEmployee = new Engineer(res.name, res.id, res.email,res.github,);
         
-    .then((res) = 'Manager'
+    }
+
+//Intern's role
+function createIntern() {
+    inquirer.prompt(typeQuestions)
+    .then((res.typeQuestions) = "Intern");
+        intern.name = res.name;
+        intern.id = res.id;
+        intern.email = res.email;
+        intern.school = res.school;
+        console.log(employees);
+        employees.push(newEmployee);
+    
+        let newEmployee = new Intern(res.name, res.id, res.email,res.school,);
+}
+
+//Manager's role
+function createManager() {
+    inquirer.prompt(typeQuestions)
+    .then((res.typeQuestions) = "Manager");
         manager.name = res.name;
         manager.id = res.id;
         manager.email = res.email;
-        manager.officeNumber = res.manager;
+        manager.officeNumber = res.officeNumber;
         console.log(employees);
         employees.push(newEmployee);
-    })
-}
 
-   
+        let newEmployee = new Manager(res.name, res.id, res.email,res.officeNumber,);
+}
 
     switch (employeeType) {
         case "Engineer":
             typeQuestions = engineerQuestions;
+            createEngineer();
             break;
         case "Intern":
             typeQuestions = internQuestions;
+            createIntern();
             break;
         case "Manager":
             typeQuestions = managerQuestions;
+            createManager();
             break;
     }
 
@@ -121,6 +150,7 @@ function init() {
         }
         
         employees.push(newEmployee)
+        
     })
 
 
@@ -135,6 +165,21 @@ const htmlData = "<p>Hello!</p>"
 
 fs.writeFileSync(outputPath, htmlData)
 
+/*function createTeam() {
+
+    fs.writeFileSync(outputPath, render(employees), function(err) {
+        if (err) {
+            return console.log(err)
+        }
+    })
+    console.log(employees);
+
+}
+*/
+
+
+
+
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
 // employee type.
@@ -146,49 +191,5 @@ fs.writeFileSync(outputPath, htmlData)
 // for the provided `render` function to work! ```
 
 
-/*
-//Engineer's role
-    function init(res) {
-    let newEmployee = new Engineer(res.name, res.id, res.email,res.github,);
-    inquirer.prompt([])
 
-    .then(function (res) {
-        engineer.name = res.name;
-        engineer.id = res.id;
-        engineer.email = res.email;
-        engineer.github = res.github;
-        console.log(employees);
-        employees.push(newEmployee);
-    })
-}
-//Intern's questions
-function employeeType(res) {
-    let newEmployee = new Intern(res.name, res.id, res.email,res.school,);
-    inquirer.prompt([
-        
-    
-    ])
-    .then(function (res) {
-        intern.name = res.name;
-        intern.id = res.id;
-        intern.email = res.email;
-        intern.school = res.school;
-        console.log(employees);
-        employees.push(newEmployee);
-    })
-}
 
-//Manger's role
-function employeeType(res) {
-    let newEmployee = new Manager(res.name, res.id, res.email,res.officeNumber,);
-    inquirer.prompt([
-        
-    .then(function (res) {
-        manager.name = res.name;
-        manager.id = res.id;
-        manager.email = res.email;
-        manager.school = res.school;
-        console.log(employees);
-        employees.push(newEmployee);
-    })
-*/
