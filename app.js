@@ -4,7 +4,6 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-​
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
@@ -24,49 +23,49 @@ const employees = []
 ​
 //employee type questions   
 let typeQuestions = [{
-        type: 'list',
-        name: 'employeeOption',
-        message: 'Confirm role of team member:',
-        choices: ['Engineer', 'Intern', 'Manager']
+        type: "list",
+        name: "employeeOption",
+        message: "Confirm role of team member:",
+        choices: ["Engineer", "Intern", "Manager"]
     },
     {
-        type: 'input',
-        name: 'name',
-        message: 'Enter name of the team member:'
+        type: "input",
+        name: "name",
+        message: "Enter name of the team member:"
     },
     {
-        type: 'input',
-        name: 'employeeId',
-        message: 'Enter the employee ID number:',
-        default: 'Employee'
+        type: "input",
+        name: "employeeId",
+        message: "Enter the employee ID number:",
+        default: "Employee"
     },
     {
-        type: 'input',
-        name: 'email',
-        message: 'Enter the Team Member\'s email address:'
+        type: "input",
+        name: "email",
+        message: "Enter the Team Member\'s email address:"
     }
 ​
 ];
 ​
 //Engineer's questions    
 let engineerQuestions = [{
-    type: 'input',
-    name: 'github',
-    message: 'Enter GitHub username:'
+    type: "input",
+    name: "github",
+    message: "Enter GitHub username:"
 }];
 ​
 //Interns's questions
 let internQuestions = [{
-    type: 'input',
-    name: 'school',
-    message: 'Enter your school name:'
+    type: "input",
+    name: "school",
+    message: "Enter your school name:"
 }];
 ​
 //Engineer's questions
 let managerQuestions = [{
-    type: 'input',
-    name: 'officeNumber',
-    message: 'Enter Manager\'s office number:'
+    type: "input",
+    name: "officeNumber",
+    message: "Enter Manager\'s office number:"
 }];
 ​
 //Engineer's role-profile
@@ -134,21 +133,21 @@ function main() {
 ​
         // switch statement to clarify question options
         switch (employeeOption) {
-            case 'Engineer':
+            case "Engineer":
                 createEngineer(name, email, id);
                 break;
-            case 'Intern':
+            case "Intern":
                 createIntern(name, email, id);
                 break;
-            case 'Manager':
+            case "Manager":
                 createManager(name, email, id);
                 break;
         }
 ​
         inquirer.prompt([{
-            type: 'list',
-            name: 'isComplete',
-            choices: ['Yes', 'No'],
+            type: "list",
+            name: "isComplete",
+            choices: ["Yes", "No"],
             message: "Is your team complete?"
         }]).then(({
             isComplete
