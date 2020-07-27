@@ -70,7 +70,7 @@ let managerQuestions = [{
 }];
 
 //Engineer's role-profile
-function createEngineer(name, email, id) {
+function createEngineer(name, id, email) {
     return inquirer.prompt(engineerQuestions)
         .then(({
             github
@@ -100,7 +100,7 @@ function createIntern(name, id, email) {
 }
 
 //Manager's role-profile
-function createManager(name, email, id) {
+function createManager(name, id, email) {
     return inquirer.prompt(managerQuestions)
         .then(({
             officeNumber
@@ -136,13 +136,13 @@ async function main() {
         // switch statement to clarify question options
         switch (employeeOption) {
             case 'Engineer':
-                await createEngineer(name, email, employeeId);
+                await createEngineer(name, employeeId, email);
                 break;
             case 'Intern':
                 await createIntern(name, employeeId, email);
                 break;
             case 'Manager':
-                await createManager();
+                await createManager(name, employeeId, email);
                 break;
         }
 
