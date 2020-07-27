@@ -142,7 +142,7 @@ async function main() {
                 await createIntern(name, employeeId, email);
                 break;
             case 'Manager':
-                createManager();
+                await createManager();
                 break;
         }
 
