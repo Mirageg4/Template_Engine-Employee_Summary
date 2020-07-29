@@ -1,0 +1,14 @@
+
+.jumbotron {
+    background-color: #63c3e9;
+}
+
+.card-header{ 
+    background-color: #63c3e9;
+}
+
+.team-area.col-12.d-flex.justify-content-center {
+    grid-column-gap: 15px;
+}
+
+
