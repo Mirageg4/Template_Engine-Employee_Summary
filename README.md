@@ -2,9 +2,8 @@
 <h2>John Manouse</h2>
 <p>I created a  node command line interface(CLI) that will prompt you in the terminal, for an employee's information, in order to create an employee team. The user will input information in the terminal following the prompts. This will create a team, and will write the information to an HTML file. The link below will provide you with a short video on how the application works.</p>
 <p>
- XXX
 </p>
- <hr>
+ 
 <h2>Template Engine Employee Summary</h2>
 <ul>
     <li>HTML code</li>
