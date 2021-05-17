@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/stevetrilogy/unit10hw#readme",
   "dependencies": {
+    "hosted-git-info": "^4.0.2",
     "inquirer": "^6.5.2",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "node-notifier": "^9.0.1"
   },
   "devDependencies": {
     "jest": "^24.9.0"
